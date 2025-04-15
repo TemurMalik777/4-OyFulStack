@@ -9,14 +9,17 @@ const User = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    phone_number: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+    },
+    password: {
+      type: DataTypes.STRING(255)
+    },
+    phone_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     first_name: {
       type: DataTypes.STRING,
@@ -27,7 +30,7 @@ const User = sequelize.define(
       allowNull: false,
     },
     profil_photo: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: true,
     },
     bio: {

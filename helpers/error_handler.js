@@ -1,9 +1,12 @@
-// const errorHandler = (error, res) => {
-//   logger.error(error)
-//   console.log(info);
-//   res.status(400).send({ error: error.message });
-// };
+const { info } = require("winston");
+// const logger = require("../services/logger.service")
 
-// module.exports = {
-//   errorHandler,
-// };
+const errorHandler = (error, res) => {
+  //   logger.error(error)
+  console.log(info);
+  res.status(400).send({ error: error.message });
+};
+
+module.exports = {
+  errorHandler,
+};
