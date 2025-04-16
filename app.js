@@ -2,10 +2,13 @@ const express = require("express");
 const config = require("config");
 const sequelize = require("./config/db");
 const mainRouter = require("./router/index.routes");
+const cookieParser = require("cookie-parser");
+
 
 const PORT = config.get("port") || 3030;
 
 const app = express();
+app.use(cookieParser());
 app.use(express.json());
 app.use("/api", mainRouter);
 

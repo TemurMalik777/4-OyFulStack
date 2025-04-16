@@ -32,6 +32,7 @@ exports.userValidation = (body) => {
       .max(255)
       .message("bio must be at most 255 characters")
       .allow("", null), // optional
+    refresh_token: Joi.string().optional(),
   });
   return schemaUser.validate(body, {
     abortEarly: false,

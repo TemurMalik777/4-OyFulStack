@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/db"); // config faylga moslashtir
+const sequelize = require("../config/db");
 
 const User = sequelize.define(
   "User",
@@ -40,6 +40,9 @@ const User = sequelize.define(
     last_seem: {
       type: DataTypes.DATE,
       allowNull: true,
+    },
+    refresh_token: {
+      type: DataTypes.STRING(500),
     },
   },
   {
