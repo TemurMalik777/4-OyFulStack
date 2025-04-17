@@ -1,9 +1,16 @@
-const { createChatAdmin, getAllChatAdmins } = require("../controller/chat.admin.controller")
+const {
+  createChatAdmin,
+  getAllChatAdmins,
+  getChatAdminById,
+  deleteChatAdmin,
+} = require("../controller/chat.admin.controller");
 
+const router = require("express").Router();
 
-const router = require("express").Router()
+router.post("/", createChatAdmin);
+router.get("/", getAllChatAdmins);
+router.get("/:id", getChatAdminById);
+router.put("/:id", deleteChatAdmin);
+router.delete("/:id", deleteChatAdmin);
 
-router.post("/", createChatAdmin)
-router.get("/", getAllChatAdmins)
-
-module.exports = router
+module.exports = router;
