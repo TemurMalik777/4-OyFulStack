@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const Chat = require('./chat.models');
 
 const Channel = sequelize.define('Channel', {
   id: {
@@ -7,10 +8,10 @@ const Channel = sequelize.define('Channel', {
     primaryKey: true,
     autoIncrement: true,
   },
-  chat_id: {
-    type: DataTypes.BIGINT,
-    allowNull: false,
-  },
+  // chat_id: {
+  //   type: DataTypes.BIGINT,
+  //   allowNull: false,
+  // },
   is_verified: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
@@ -25,5 +26,8 @@ const Channel = sequelize.define('Channel', {
   tableName: 'channels',
   timestamps: false,
 });
+
+Channel.belongsTo(Chat)
+Chat.hasMany(Channel)
 
 module.exports = Channel;
